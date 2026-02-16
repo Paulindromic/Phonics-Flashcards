@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 520" width="420" height="520">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFE0E6"/>
+      <stop offset="100%" style="stop-color:#FFFFFF"/>
+    </linearGradient>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700;800&amp;display=swap');
+      text { font-family: 'Fredoka', 'Nunito', 'Quicksand', sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Card background -->
+  <rect x="5" y="5" width="410" height="510" rx="28" ry="28"
+        fill="url(#bgGrad)" stroke="#FF6B8A" stroke-width="5"/>
+
+  <!-- Decorative dots -->
+  <circle cx="36" cy="36" r="10" fill="#FF6B8A" opacity="0.25"/>
+  <circle cx="391" cy="30" r="7" fill="#FF6B8A" opacity="0.18"/>
+  <circle cx="36" cy="496" r="6" fill="#FF6B8A" opacity="0.15"/>
+  <circle cx="394" cy="498" r="9" fill="#FF6B8A" opacity="0.2"/>
+
+  <!-- Large letter -->
+  <text x="210" y="230" text-anchor="middle" dominant-baseline="central"
+        font-size="220" font-weight="700" fill="#C2185B">a</text>
+
+  <!-- Divider line -->
+  <line x1="126" y1="310" x2="294" y2="310" stroke="#FF6B8A" stroke-width="4"
+        stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Word with emphasized first letter -->
+  <text x="210" y="390" text-anchor="middle" dominant-baseline="central"
+        font-size="56" font-weight="600" fill="#C2185B">
+    <tspan font-weight="800" font-size="64">A</tspan>rrow
+  </text>
+
+  <!-- Simple arrow illustration -->
+  <g transform="translate(210, 462)">
+    <!-- Arrow shaft -->
+    <rect x="-30" y="-3" width="60" height="6" rx="2" fill="#FF8F00"/>
+    <!-- Arrowhead -->
+    <polygon points="30,-12 50,0 30,12" fill="#F57C00"/>
+    <!-- Arrowhead highlight -->
+    <polygon points="30,-8 44,0 30,4" fill="#FFA726" opacity="0.5"/>
+    <!-- Fletching (feathers at the back) -->
+    <polygon points="-30,-3 -40,-14 -24,-3" fill="#E53935"/>
+    <polygon points="-30,3 -40,14 -24,3" fill="#E53935"/>
+    <polygon points="-28,-3 -36,-11 -22,-3" fill="#EF5350" opacity="0.6"/>
+    <polygon points="-28,3 -36,11 -22,3" fill="#EF5350" opacity="0.6"/>
+    <!-- Nock -->
+    <rect x="-32" y="-4" width="4" height="8" rx="1" fill="#795548"/>
+  </g>
+</svg>
