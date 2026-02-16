@@ -61,6 +61,10 @@ function shuffle(arr) {
   return a;
 }
 
+function getImagePath(letter, word) {
+  return `svg/${letter}-${word}.svg`;
+}
+
 function Flashcard({ letter, isFlipped, onFlip, word }) {
   const color = getColorForLetter(letter);
 
@@ -187,17 +191,20 @@ function Flashcard({ letter, isFlipped, onFlip, word }) {
             background: color.accent, opacity: 0.1,
           }} />
 
-          {/* The word with the first letter bolded */}
+          {/* Letter, image, and word */}
           <div style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: "16px",
+            gap: "8px",
+            width: "100%",
+            flex: 1,
+            justifyContent: "center",
           }}>
             <span
               style={{
                 fontFamily: "'Fredoka', 'Nunito', 'Quicksand', sans-serif",
-                fontSize: "min(28vw, 150px)",
+                fontSize: "min(18vw, 80px)",
                 fontWeight: 700,
                 color: color.text,
                 lineHeight: 1,
@@ -207,20 +214,20 @@ function Flashcard({ letter, isFlipped, onFlip, word }) {
               {letter.toUpperCase()}{letter}
             </span>
 
-            <div
+            <img
+              src={getImagePath(letter, word)}
+              alt={word}
               style={{
-                width: "60%",
-                height: 4,
-                borderRadius: 2,
-                background: `linear-gradient(90deg, transparent, ${color.accent}, transparent)`,
-                opacity: 0.4,
+                width: "min(50vw, 200px)",
+                height: "min(35vh, 200px)",
+                objectFit: "contain",
               }}
             />
 
             <span
               style={{
                 fontFamily: "'Fredoka', 'Nunito', 'Quicksand', sans-serif",
-                fontSize: `min(${word.length > 8 ? "7vw" : "9vw"}, ${word.length > 8 ? "44px" : "56px"})`,
+                fontSize: `min(${word.length > 8 ? "6vw" : "8vw"}, ${word.length > 8 ? "36px" : "44px"})`,
                 fontWeight: 600,
                 color: color.text,
                 lineHeight: 1.2,
