@@ -1,5 +1,17 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
 
+import appleImg from "./Images/a-apple.svg";
+import antImg from "./Images/a-ant.svg";
+import alligatorImg from "./Images/a-alligator.svg";
+import arrowImg from "./Images/a-arrow.svg";
+
+const wordImages = {
+  apple: appleImg,
+  ant: antImg,
+  alligator: alligatorImg,
+  arrow: arrowImg,
+};
+
 const wordData = {
   a: ["apple", "ant", "alligator", "arrow"],
   b: ["ball", "bear", "banana", "butterfly", "bird", "boat", "bee", "book"],
@@ -61,7 +73,7 @@ function shuffle(arr) {
   return a;
 }
 
-function Flashcard({ letter, isFlipped, onFlip, word }) {
+function Flashcard({ letter, isFlipped, onFlip, word, image }) {
   const color = getColorForLetter(letter);
 
   return (
@@ -192,12 +204,12 @@ function Flashcard({ letter, isFlipped, onFlip, word }) {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: "16px",
+            gap: image ? "10px" : "16px",
           }}>
             <span
               style={{
                 fontFamily: "'Fredoka', 'Nunito', 'Quicksand', sans-serif",
-                fontSize: "min(28vw, 150px)",
+                fontSize: image ? "min(18vw, 80px)" : "min(28vw, 150px)",
                 fontWeight: 700,
                 color: color.text,
                 lineHeight: 1,
@@ -216,6 +228,18 @@ function Flashcard({ letter, isFlipped, onFlip, word }) {
                 opacity: 0.4,
               }}
             />
+
+            {image && (
+              <img
+                src={image}
+                alt={word}
+                style={{
+                  width: "min(50vw, 180px)",
+                  height: "min(50vw, 180px)",
+                  objectFit: "contain",
+                }}
+              />
+            )}
 
             <span
               style={{
@@ -613,6 +637,7 @@ export default function PhonicsFlashcards() {
             isFlipped={isFlipped}
             onFlip={handleFlip}
             word={currentWords[currentLetter] || ""}
+            image={wordImages[currentWords[currentLetter]] || null}
           />
         )}
       </div>
